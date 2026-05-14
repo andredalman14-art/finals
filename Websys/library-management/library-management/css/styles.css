@@ -1,0 +1,2164 @@
+/* =========================================
+   ROOT VARIABLES
+   Purpose: Stores reusable colors, shadows,
+   and theme values for the whole website.
+========================================= */
+:root {
+  --ink: #1f2933; /* Main text color */
+  --muted: #667085; /* Muted/secondary text color */
+  --paper: #f7f4ed; /* Main page background */
+  --panel: #ffffff; /* Card/panel background */
+  --line: #ddd6c8; /* Border/divider color */
+  --green: #24715e; /* Primary green color */
+  --green-dark: #145647; /* Darker green for hover states */
+  --coral: #c45b4a; /* Accent coral color */
+  --gold: #d29b2e; /* Accent gold color */
+  --blue: #3d6f8f; /* Accent blue color */
+
+  /* Shadow used for cards and elevated elements */
+  --shadow: 0 18px 40px rgba(31, 41, 51, 0.12);
+}
+
+/* =========================================
+   UNIVERSAL SELECTOR
+   Purpose: Makes width and height calculations
+   include padding and border.
+========================================= */
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   BODY
+   Purpose: Main styling for the entire webpage.
+========================================= */
+body {
+  margin: 0; /* Removes default browser margin */
+  font-family: Arial, Helvetica, sans-serif; /* Main font */
+  background: var(--paper); /* Background color */
+  color: var(--ink); /* Default text color */
+  line-height: 1.6; /* Improves readability */
+}
+
+/* =========================================
+   LINKS
+   Purpose: Removes default link styling.
+========================================= */
+a {
+  color: inherit; /* Uses parent text color */
+  text-decoration: none; /* Removes underline */
+}
+
+/* =========================================
+   SITE HEADER
+   Purpose: Sticky navigation bar at top.
+========================================= */
+.site-header {
+  position: sticky; /* Stays at top when scrolling */
+  top: 0;
+  z-index: 10; /* Keeps header above other elements */
+
+  display: flex; /* Horizontal layout */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space between logo and nav */
+  gap: 24px; /* Space between elements */
+
+  padding: 18px 5vw; /* Responsive padding */
+
+  background: rgba(247, 244, 237, 0.94); /* Semi-transparent background */
+
+  border-bottom: 1px solid var(--line); /* Bottom border */
+
+  backdrop-filter: blur(12px); /* Glass blur effect */
+}
+
+/* =========================================
+   BRAND / LOGO
+========================================= */
+.brand {
+  display: inline-flex; /* Inline flex container */
+  align-items: center; /* Align logo and text */
+  gap: 10px; /* Space between logo and text */
+
+  font-weight: 800; /* Bold text */
+  font-size: 1.15rem; /* Logo text size */
+}
+
+/* Logo icon box */
+.brand-mark {
+  display: grid;
+  place-items: center; /* Centers icon */
+
+  width: 42px;
+  height: 42px;
+
+  color: white;
+  background: var(--green);
+
+  border-radius: 8px;
+
+  /* Decorative inner shadow */
+  box-shadow: inset 8px 0 0 rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Individual navigation link */
+.nav-links a {
+  padding: 9px 12px;
+  border-radius: 8px;
+
+  color: #344054;
+
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+/* Hover effect and active page indicator */
+.nav-links a:hover,
+.nav-links .active {
+  background: #ebe4d6;
+  color: var(--green-dark);
+}
+
+/* =========================================
+   BUTTONS
+   Purpose: Shared styles for all buttons.
+========================================= */
+.nav-links .nav-button,
+.primary-button,
+.secondary-button,
+.small-button {
+  border: 0; /* Removes border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  font-weight: 800; /* Bold text */
+}
+
+/* Primary buttons */
+.nav-links .nav-button,
+.primary-button {
+  color: white;
+  background: var(--green);
+}
+
+/* Hover state for primary buttons */
+.nav-links .nav-button:hover,
+.primary-button:hover {
+  color: white;
+  background: var(--green-dark);
+}
+
+/* Shared layout for buttons */
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+  padding: 0 18px;
+}
+
+/* Secondary button style */
+.secondary-button {
+  border: 1px solid var(--line);
+  background: white;
+}
+
+/* Secondary button hover */
+.secondary-button:hover {
+  background: #f2ecdf;
+}
+
+/* =========================================
+   HERO SECTION
+   Purpose: Main landing section layout.
+========================================= */
+.hero {
+  display: grid;
+
+  /* Two-column layout */
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+
+  gap: 40px;
+  align-items: center;
+
+  min-height: 600px;
+
+  padding: 54px 5vw 64px;
+
+  /* Decorative background gradients */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247, 244, 237, 0.98),
+      rgba(247, 244, 237, 0.82)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 58px,
+      rgba(36, 113, 94, 0.08) 59px,
+      transparent 60px
+    );
+}
+
+/* Hero text container */
+.hero-copy {
+  max-width: 700px;
+}
+
+/* Small text above title */
+.eyebrow {
+  margin: 0 0 10px;
+
+  color: var(--coral);
+
+  font-size: 0.78rem;
+  font-weight: 900;
+
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   HEADINGS & PARAGRAPHS
+========================================= */
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* Main heading */
+h1 {
+  margin-bottom: 18px;
+
+  /* Responsive font size */
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+
+  line-height: 0.98;
+}
+
+/* Section heading */
+h2 {
+  margin-bottom: 10px;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+/* Smaller heading */
+h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Hero paragraph */
+.hero-copy p:not(.eyebrow) {
+  max-width: 600px;
+
+  color: #475467;
+
+  font-size: 1.08rem;
+}
+
+/* =========================================
+   HERO BUTTON AREA
+========================================= */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+/* =========================================
+   HERO VISUAL
+   Purpose: Decorative bookshelf design.
+========================================= */
+.hero-visual {
+  position: relative;
+
+  min-height: 430px;
+  padding: 32px;
+
+  overflow: hidden;
+
+  background: #26362f;
+
+  border: 1px solid #1b2924;
+  border-radius: 8px;
+
+  box-shadow: var(--shadow);
+}
+
+/* Decorative shelves */
+.hero-visual::before,
+.hero-visual::after {
+  content: "";
+
+  position: absolute;
+
+  left: 28px;
+  right: 28px;
+
+  height: 12px;
+
+  background: #ac7a3c;
+
+  border-radius: 3px;
+}
+
+/* Top shelf */
+.hero-visual::before {
+  top: 168px;
+}
+
+/* Bottom shelf */
+.hero-visual::after {
+  top: 314px;
+}
+
+/* =========================================
+   BOOK SHELF ROWS
+========================================= */
+.shelf-row {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: end;
+  gap: 12px;
+
+  height: 130px;
+
+  margin-bottom: 28px;
+}
+
+/* Individual book styling */
+.shelf-row span {
+  display: block;
+  width: 48px;
+
+  border-radius: 4px 4px 0 0;
+
+  /* Creates book depth effect */
+  box-shadow: inset -9px 0 0 rgba(0, 0, 0, 0.16);
+}
+
+/* =========================================
+   BOOK COLORS & HEIGHTS
+   Purpose: Creates visual variety.
+========================================= */
+.row-one span:nth-child(1) { height: 112px; background: var(--coral); }
+.row-one span:nth-child(2) { height: 86px; background: var(--gold); }
+.row-one span:nth-child(3) { height: 124px; background: #d9d3c1; }
+.row-one span:nth-child(4) { height: 96px; background: var(--blue); }
+.row-one span:nth-child(5) { height: 116px; background: #7f9b79; }
+
+.row-two span:nth-child(1) { height: 96px; background: #d9d3c1; }
+.row-two span:nth-child(2) { height: 120px; background: #7f9b79; }
+.row-two span:nth-child(3) { height: 104px; background: var(--coral); }
+.row-two span:nth-child(4) { height: 82px; background: var(--gold); }
+.row-two span:nth-child(5) { height: 118px; background: var(--blue); }
+
+/* =========================================
+   CATALOG CARD
+   Purpose: Floating info card in hero section.
+========================================= */
+.catalog-card {
+  position: absolute;
+
+  right: 26px;
+  bottom: 26px;
+
+  width: min(180px, 42%);
+
+  padding: 18px;
+
+  background: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* Text inside catalog card */
+.catalog-card p,
+.catalog-card span {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.86rem;
+}
+
+/* Large highlighted number */
+.catalog-card strong {
+  display: block;
+
+  color: var(--green);
+
+  font-size: 3rem;
+
+  line-height: 1;
+}
+
+/* =========================================
+   GRID LAYOUTS
+========================================= */
+.feature-band,
+.stats-grid,
+.record-grid,
+.status-grid,
+.form-grid {
+  display: grid;
+  gap: 18px;
+}
+
+/* Feature cards section */
+.feature-band {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  padding: 34px 5vw;
+
+  background: #fffaf0;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Shared card design */
+.feature-band article,
+.stat-card,
+.record-card,
+.status-card,
+.form-panel,
+.table-panel,
+.profile-panel,
+.activity-panel {
+  background: var(--panel);
+
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.06);
+}
+
+/* Feature card spacing */
+.feature-band article {
+  padding: 20px;
+}
+
+/* Feature icon */
+.feature-icon {
+  display: inline-grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 16px;
+
+  color: white;
+  background: var(--coral);
+
+  border-radius: 50%;
+
+  font-weight: 900;
+}
+
+/* Muted text styling */
+.feature-band p,
+.flow-list,
+.page-subtitle,
+.table-panel p,
+.record-card p,
+.status-card p,
+.muted {
+  color: var(--muted);
+}
+
+/* =========================================
+   FLOW SECTION & PAGE SHELL
+========================================= */
+.flow-section,
+.page-shell {
+  padding: 44px 5vw 56px;
+}
+
+/* Two-column flow layout */
+.flow-section {
+  display: grid;
+
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+
+  gap: 32px;
+
+  align-items: start;
+}
+
+/* Ordered/unordered flow list */
+.flow-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+/* Spacing between list items */
+.flow-list li + li {
+  margin-top: 12px;
+}
+
+/* =========================================
+   PAGE HERO
+========================================= */
+.page-hero {
+  padding: 34px 5vw;
+
+  background: #fffaf0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+/* Page title */
+.page-hero h1 {
+  max-width: 960px;
+
+  margin-bottom: 12px;
+
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+}
+
+/* Page subtitle */
+.page-subtitle {
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+/* =========================================
+   AUTHENTICATION LAYOUT
+========================================= */
+.auth-layout {
+  display: grid;
+
+  grid-template-columns: minmax(280px, 0.86fr) minmax(320px, 1.14fr);
+
+  min-height: calc(100vh - 78px);
+}
+
+/* Left side auth panel */
+.auth-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 44px 5vw;
+
+  color: white;
+
+  background: #24362f;
+}
+
+/* Auth heading */
+.auth-side h1 {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+}
+
+/* Auth description */
+.auth-side p {
+  color: #d9e2dc;
+}
+
+/* Metrics grid */
+.auth-metrics {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+/* Metric card */
+.auth-metrics span {
+  display: block;
+
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 8px;
+}
+
+/* Metric number */
+.auth-metrics strong {
+  display: block;
+
+  font-size: 1.35rem;
+}
+
+/* =========================================
+   FORM AREA
+========================================= */
+.auth-form-wrap {
+  display: grid;
+  place-items: center;
+
+  padding: 42px 5vw;
+}
+
+/* Main form card */
+.form-panel {
+  width: min(100%, 760px);
+
+  padding: 26px;
+}
+
+/* Narrow form variant */
+.form-panel.narrow {
+  width: min(100%, 470px);
+}
+
+/* Form layout */
+form {
+  display: grid;
+  gap: 16px;
+}
+
+/* Field container */
+.field-group {
+  display: grid;
+  gap: 7px;
+}
+
+/* Labels */
+label {
+  color: #344054;
+
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+/* Form inputs */
+input,
+select,
+textarea {
+  width: 100%;
+
+  min-height: 44px;
+
+  padding: 10px 12px;
+
+  color: var(--ink);
+
+  background: #fffdf8;
+
+  border: 1px solid #cfc6b6;
+  border-radius: 8px;
+
+  font: inherit;
+}
+
+/* Textarea specifics */
+textarea {
+  min-height: 110px;
+
+  resize: vertical;
+}
+
+/* Input focus state */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(36, 113, 94, 0.18);
+
+  border-color: var(--green);
+}
+
+/* Two-column form layout */
+.two-column {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+/* Form notes */
+.form-note {
+  color: var(--muted);
+
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   ALERT BOXES
+========================================= */
+.alert {
+  padding: 12px 14px;
+
+  color: var(--green-dark);
+
+  background: #eef5f2;
+
+  border: 1px solid #cbded7;
+  border-radius: 8px;
+
+  font-weight: 700;
+}
+
+/* Error alert */
+.alert.error {
+  color: #963c30;
+
+  background: #fff0ed;
+
+  border-color: #edc2ba;
+}
+
+/* =========================================
+   CHECKBOX ROW
+========================================= */
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--muted);
+
+  font-weight: 700;
+}
+
+/* Checkbox input */
+.check-row input {
+  width: auto;
+  min-height: auto;
+}
+
+/* =========================================
+   DANGER BUTTON
+========================================= */
+.danger-solid {
+  background: var(--coral);
+}
+
+/* Danger hover state */
+.danger-solid:hover {
+  background: #963c30;
+}
+
+/* =========================================
+   STATS GRID
+========================================= */
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  margin-bottom: 22px;
+}
+
+/* Stat card */
+.stat-card {
+  padding: 20px;
+}
+
+/* Stat label */
+.stat-card span {
+  color: var(--muted);
+
+  font-weight: 800;
+  font-size: 0.82rem;
+
+  text-transform: uppercase;
+}
+
+/* Stat value */
+.stat-card strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--green);
+
+  font-size: 2.4rem;
+
+  line-height: 1;
+}
+
+/* =========================================
+   DASHBOARD LAYOUT
+========================================= */
+.dashboard-layout {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+
+  gap: 20px;
+}
+
+/* Dashboard panels */
+.table-panel,
+.activity-panel,
+.profile-panel {
+  padding: 22px;
+
+  overflow-x: auto;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+table {
+  width: 100%;
+  min-width: 680px;
+
+  border-collapse: collapse;
+}
+
+/* Table cells */
+th,
+td {
+  padding: 13px 12px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #e8e0d2;
+
+  vertical-align: top;
+}
+
+/* Table headers */
+th {
+  color: #344054;
+
+  background: #f5efe3;
+
+  font-size: 0.84rem;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   STATUS PILLS
+========================================= */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 84px;
+
+  padding: 4px 9px;
+
+  color: white;
+
+  border-radius: 999px;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+/* Status colors */
+.available { background: var(--green); }
+.borrowed { background: var(--blue); }
+.overdue { background: var(--coral); }
+.reserved { background: var(--gold); color: #352508; }
+
+/* =========================================
+   TABLE ACTION BUTTONS
+========================================= */
+.table-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Small buttons */
+.small-button {
+  min-height: 32px;
+
+  padding: 0 10px;
+
+  color: var(--green-dark);
+
+  background: #eef5f2;
+
+  border: 1px solid #cbded7;
+}
+
+/* Delete/danger button */
+.danger-button {
+  color: #963c30;
+
+  background: #fff0ed;
+
+  border-color: #edc2ba;
+}
+
+/* =========================================
+   ACTIVITY LIST
+========================================= */
+.activity-list {
+  display: grid;
+
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* Activity item */
+.activity-list li {
+  padding: 12px;
+
+  background: #fffaf0;
+
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+/* =========================================
+   RECORD GRID
+========================================= */
+.record-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  margin-top: 20px;
+}
+
+/* Record card */
+.record-card {
+  padding: 20px;
+}
+
+/* Metadata area */
+.record-card .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+/* =========================================
+   STATUS GRID
+========================================= */
+.status-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  margin-bottom: 20px;
+}
+
+/* Status cards */
+.status-card {
+  padding: 20px;
+
+  border-top: 6px solid var(--green);
+}
+
+/* Different top border colors */
+.status-card:nth-child(2) { border-top-color: var(--blue); }
+.status-card:nth-child(3) { border-top-color: var(--coral); }
+.status-card:nth-child(4) { border-top-color: var(--gold); }
+
+/* Status value */
+.status-card strong {
+  display: block;
+
+  font-size: 2rem;
+}
+
+/* =========================================
+   PROFILE LAYOUT
+========================================= */
+.profile-layout {
+  display: grid;
+
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+
+  gap: 20px;
+}
+
+/* Profile avatar */
+.profile-photo {
+  display: grid;
+  place-items: center;
+
+  width: 112px;
+  height: 112px;
+
+  margin-bottom: 18px;
+
+  color: white;
+  background: var(--green);
+
+  border-radius: 50%;
+
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+/* Profile information list */
+.profile-list {
+  display: grid;
+
+  gap: 10px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* Profile list item */
+.profile-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 22px 5vw;
+
+  color: #5a645f;
+
+  background: #e8dfcf;
+
+  border-top: 1px solid var(--line);
+}
+
+/* Footer text */
+.site-footer p {
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET
+========================================= */
+@media (max-width: 980px) {
+
+  /* Converts layouts to single column */
+  .hero,
+  .auth-layout,
+  .dashboard-layout,
+  .flow-section,
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduces grids to 2 columns */
+  .feature-band,
+  .stats-grid,
+  .status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .record-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE
+========================================= */
+@media (max-width: 680px) {
+
+  /* Stacks header items vertically */
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  /* Aligns nav left */
+  .nav-links {
+    justify-content: flex-start;
+  }
+
+  /* Single-column grids */
+  .feature-band,
+  .stats-grid,
+  .status-grid,
+  .record-grid,
+  .two-column,
+  .auth-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjusts hero section */
+  .hero {
+    min-height: auto;
+    padding-top: 34px;
+  }
+
+  /* Smaller hero visual */
+  .hero-visual {
+    min-height: 330px;
+  }
+
+  /* Stacks footer items */
+  .site-footer {
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   AUTH DESIGN FINAL FIX
+   This block must stay last to cancel old generated auth text.
+========================================= */
+body.auth-page {
+  margin: 0 !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+body.auth-page .site-header,
+body.auth-page .social-icons,
+body.auth-page .form-panel > .muted {
+  display: none !important;
+}
+
+body.auth-page .auth-form-wrap,
+body.auth-page .auth-screen {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 50vw 50vw !important;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+}
+
+body.auth-page:has(form[action="login.php"]) .auth-form-wrap::before,
+body.auth-page:has(form[action="register.php"]) .auth-form-wrap::before,
+body.auth-page:has(form[action="login.php"]) .auth-form-wrap::after,
+body.auth-page:has(form[action="register.php"]) .auth-form-wrap::after,
+body.auth-page .auth-form-wrap::before,
+body.auth-page .auth-form-wrap::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.register-page .auth-panel {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.register-page .auth-card {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-card {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-panel {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.auth-page .auth-panel {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  padding: 40px 7vw !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0b5b4d 0%, #0f6f5d 100%) !important;
+  text-align: center !important;
+}
+
+body.auth-page .auth-panel h2 {
+  margin: 0 0 24px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.9rem, 5vw, 3.7rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+}
+
+body.auth-page .auth-panel p {
+  max-width: 430px !important;
+  margin: 0 auto 42px !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-size: 1.18rem !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+body.auth-page .ghost-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 220px !important;
+  min-height: 62px !important;
+  padding: 0 40px !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  border: 2px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 999px !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+
+body.auth-page .auth-card,
+body.auth-page .form-panel.narrow {
+  position: relative !important;
+  z-index: 2 !important;
+  align-self: center !important;
+  justify-self: center !important;
+  width: min(70%, 455px) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+body.auth-page:has(form[action="login.php"]) .form-panel h1,
+body.auth-page:has(form[action="register.php"]) .form-panel h1,
+body.auth-page .auth-card h1 {
+  margin: 0 0 34px !important;
+  color: #050505 !important;
+  font-size: clamp(2.65rem, 5vw, 3.35rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+}
+
+body.auth-page:has(form[action="login.php"]) .form-panel h1::before,
+body.auth-page:has(form[action="register.php"]) .form-panel h1::before,
+body.auth-page:has(form[action="login.php"]) .form-panel h1::after,
+body.auth-page:has(form[action="register.php"]) .form-panel h1::after,
+body.auth-page:has(form[action="register.php"]) .form-panel form::before,
+body.auth-page:has(form[action="login.php"]) .primary-button::before,
+body.auth-page:has(form[action="register.php"]) .primary-button::before,
+body.auth-page .auth-card h1::before,
+body.auth-page .auth-card h1::after,
+body.auth-page form::before,
+body.auth-page .primary-button::before {
+  display: none !important;
+  content: none !important;
+}
+
+body.auth-page .auth-subtext {
+  display: block !important;
+  margin: 0 0 20px !important;
+  color: #252525 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page form {
+  display: grid !important;
+  gap: 16px !important;
+}
+
+body.auth-page .field-group {
+  display: block !important;
+  position: relative !important;
+}
+
+body.auth-page .field-group label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  transform: none !important;
+}
+
+body.auth-page input,
+body.auth-page select {
+  width: 100% !important;
+  min-height: 66px !important;
+  padding: 0 24px !important;
+  color: #333333 !important;
+  background: #eeeeee !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page input:valid,
+body.auth-page select {
+  padding-top: 0 !important;
+}
+
+body.auth-page input::placeholder {
+  color: #8e8e8e !important;
+  opacity: 1 !important;
+}
+
+body.register-page .role-group {
+  display: none !important;
+}
+
+body.login-page .remember-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin: -4px 0 0 !important;
+  white-space: nowrap !important;
+}
+
+body.login-page .remember-row input {
+  width: 13px !important;
+  height: 13px !important;
+  min-height: 13px !important;
+  padding: 0 !important;
+  accent-color: #0b5b4d !important;
+}
+
+body.login-page .forgot-link {
+  margin: 0 !important;
+  color: #333333 !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+
+body.auth-page:has(form[action="login.php"]) .primary-button,
+body.auth-page:has(form[action="register.php"]) .primary-button,
+body.auth-page .primary-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: center !important;
+  min-width: 225px !important;
+  min-height: 64px !important;
+  margin-top: 2px !important;
+  padding: 0 42px !important;
+  color: #ffffff !important;
+  background: #0b5b4d !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18) !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 860px) {
+  body.auth-page .auth-form-wrap,
+  body.auth-page .auth-screen {
+    grid-template-columns: 1fr !important;
+    overflow: auto !important;
+  }
+
+  body.register-page .auth-panel,
+  body.register-page .auth-card,
+  body.login-page .auth-card,
+  body.login-page .auth-panel {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  body.auth-page .auth-card {
+    order: 1 !important;
+    width: min(100%, 440px) !important;
+    padding: 42px 22px !important;
+  }
+
+  body.auth-page .auth-panel {
+    order: 2 !important;
+    min-height: auto !important;
+    padding: 46px 24px !important;
+  }
+}
+
+/* =========================================
+   LOGIN / REGISTER SPLIT AUTH DESIGN
+========================================= */
+html:has(body.auth-page),
+body.auth-page {
+  width: 100%;
+  min-height: 100%;
+  margin: 0 !important;
+  background: #ffffff !important;
+  overflow-x: hidden;
+}
+
+body.auth-page .site-header,
+body.auth-page .social-icons,
+body.auth-page .remember-row,
+body.auth-page .form-panel > .muted:last-child {
+  display: none !important;
+}
+
+body.auth-page .auth-screen {
+  display: grid !important;
+  grid-template-columns: 50% 50% !important;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #ffffff !important;
+}
+
+body.register-page .auth-panel {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.register-page .auth-card {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-card {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-panel {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.auth-page .auth-panel {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  padding: 40px 7vw !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0b5b4d 0%, #0f6f5d 100%) !important;
+  text-align: center !important;
+}
+
+body.auth-page .auth-panel h2 {
+  margin: 0 0 28px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.8rem, 5vw, 3.6rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+}
+
+body.auth-page .auth-panel p {
+  max-width: 430px !important;
+  margin: 0 auto 42px !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+body.auth-page .ghost-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 225px !important;
+  min-height: 64px !important;
+  padding: 0 42px !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  border: 2px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 999px !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+
+body.auth-page .auth-card {
+  align-self: center !important;
+  justify-self: center !important;
+  width: min(70%, 455px) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+body.auth-page .auth-card h1 {
+  margin: 0 0 34px !important;
+  color: #050505 !important;
+  font-size: clamp(2.65rem, 5vw, 3.35rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+}
+
+body.auth-page .auth-subtext {
+  margin: 0 0 20px !important;
+  color: #252525 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page form {
+  display: grid !important;
+  gap: 18px !important;
+}
+
+body.auth-page .field-group {
+  display: block !important;
+  position: relative !important;
+}
+
+body.auth-page .field-group label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+body.auth-page input,
+body.auth-page select {
+  width: 100% !important;
+  min-height: 66px !important;
+  padding: 0 24px !important;
+  color: #333333 !important;
+  background: #eeeeee !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page input::placeholder {
+  color: #8e8e8e !important;
+  opacity: 1 !important;
+}
+
+body.register-page .role-group {
+  display: none !important;
+}
+
+body.login-page .forgot-link {
+  margin: 4px 0 6px !important;
+  color: #333333 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page .primary-button {
+  justify-self: center !important;
+  min-width: 225px !important;
+  min-height: 64px !important;
+  margin-top: 2px !important;
+  padding: 0 42px !important;
+  color: #ffffff !important;
+  background: #0b5b4d !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18) !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 860px) {
+  body.auth-page .auth-screen {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.register-page .auth-panel,
+  body.register-page .auth-card,
+  body.login-page .auth-card,
+  body.login-page .auth-panel {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  body.auth-page .auth-card {
+    order: 1 !important;
+    width: min(100%, 440px) !important;
+    padding: 42px 22px !important;
+  }
+
+  body.auth-page .auth-panel {
+    order: 2 !important;
+    min-height: auto !important;
+    padding: 46px 24px !important;
+  }
+}
+
+/* =========================================
+   LOGIN / REGISTER IMAGE-STYLE DESIGN
+========================================= */
+body:has(form[action="login.php"]),
+body:has(form[action="register.php"]) {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body:has(form[action="login.php"]) .site-header,
+body:has(form[action="register.php"]) .site-header {
+  display: none;
+}
+
+body:has(form[action="login.php"]) .auth-form-wrap,
+body:has(form[action="register.php"]) .auth-form-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+body:has(form[action="login.php"]) .auth-form-wrap::before,
+body:has(form[action="register.php"]) .auth-form-wrap::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  background: linear-gradient(135deg, #f0523d 0%, #ed3f68 100%);
+}
+
+body:has(form[action="register.php"]) .auth-form-wrap::before {
+  grid-column: 1;
+}
+
+body:has(form[action="login.php"]) .auth-form-wrap::after,
+body:has(form[action="register.php"]) .auth-form-wrap::after {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  padding: 0 7vw;
+  color: #ffffff;
+  text-align: center;
+  transform: translateY(-50%);
+  white-space: pre-line;
+  pointer-events: none;
+}
+
+body:has(form[action="login.php"]) .auth-form-wrap::after {
+  right: 0;
+  content: "Hello, Friend!\A\A Enter Your Personal Details and start\A Journey with us\A\A SIGN UP";
+}
+
+body:has(form[action="register.php"]) .auth-form-wrap::after {
+  left: 0;
+  content: "Welcome Back\A\A To keep connected with us please login\A with your personal info\A\A SIGN IN";
+}
+
+body:has(form[action="login.php"]) .form-panel.narrow,
+body:has(form[action="register.php"]) .form-panel.narrow {
+  position: relative;
+  z-index: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  width: min(76%, 480px);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+body:has(form[action="login.php"]) .form-panel.narrow {
+  grid-column: 1;
+}
+
+body:has(form[action="register.php"]) .form-panel.narrow {
+  grid-column: 2;
+}
+
+body:has(form[action="login.php"]) .form-panel h1,
+body:has(form[action="register.php"]) .form-panel h1 {
+  margin-bottom: 36px;
+  color: #050505;
+  font-size: 0;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+body:has(form[action="login.php"]) .form-panel h1::before,
+body:has(form[action="register.php"]) .form-panel h1::before {
+  display: block;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+}
+
+body:has(form[action="login.php"]) .form-panel h1::before {
+  content: "Sign in";
+  font-size: clamp(2.3rem, 5vw, 3rem);
+}
+
+body:has(form[action="register.php"]) .form-panel h1::before {
+  content: "Create Account";
+}
+
+body:has(form[action="login.php"]) .form-panel h1::after,
+body:has(form[action="register.php"]) .form-panel h1::after {
+  content: "f  G+  in";
+  display: block;
+  margin: 30px auto 24px;
+  color: #222222;
+  font-size: 0.95rem;
+  font-weight: 800;
+  word-spacing: 24px;
+}
+
+body:has(form[action="login.php"]) .form-panel > .muted:first-of-type {
+  margin: -8px 0 16px;
+  color: #303030;
+  font-size: 0;
+  font-weight: 700;
+}
+
+body:has(form[action="login.php"]) .form-panel > .muted:first-of-type::before {
+  content: "or use your account";
+  font-size: 1rem;
+}
+
+body:has(form[action="register.php"]) .form-panel h1 + .alert,
+body:has(form[action="register.php"]) .form-panel h1 + form::before {
+  margin-top: -12px;
+}
+
+body:has(form[action="register.php"]) .form-panel form::before {
+  content: "or use your email for registration";
+  display: block;
+  margin: -10px 0 2px;
+  color: #303030;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+body:has(form[action="login.php"]) form,
+body:has(form[action="register.php"]) form {
+  gap: 18px;
+}
+
+body:has(form[action="login.php"]) .field-group,
+body:has(form[action="register.php"]) .field-group {
+  position: relative;
+  gap: 0;
+}
+
+body:has(form[action="login.php"]) label:not(.check-row),
+body:has(form[action="register.php"]) label:not(.check-row) {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  z-index: 1;
+  color: #8f8f8f;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body:has(form[action="login.php"]) input,
+body:has(form[action="register.php"]) input,
+body:has(form[action="register.php"]) select {
+  min-height: 66px;
+  padding: 0 24px;
+  color: #333333;
+  background: #eeeeee;
+  border: 0;
+  border-radius: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+body:has(form[action="login.php"]) input:valid,
+body:has(form[action="register.php"]) input:valid,
+body:has(form[action="register.php"]) select {
+  padding-top: 20px;
+}
+
+body:has(form[action="login.php"]) .field-group:focus-within label:not(.check-row),
+body:has(form[action="register.php"]) .field-group:focus-within label:not(.check-row),
+body:has(form[action="login.php"]) .field-group:has(input:valid) label:not(.check-row),
+body:has(form[action="register.php"]) .field-group:has(input:valid) label:not(.check-row),
+body:has(form[action="register.php"]) .field-group:has(select) label:not(.check-row) {
+  top: 13px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+body:has(form[action="login.php"]) input::placeholder,
+body:has(form[action="register.php"]) input::placeholder {
+  color: #8f8f8f;
+}
+
+body:has(form[action="login.php"]) input:focus,
+body:has(form[action="register.php"]) input:focus,
+body:has(form[action="register.php"]) select:focus {
+  outline: 3px solid rgba(240, 82, 61, 0.18);
+  border-color: transparent;
+}
+
+body:has(form[action="login.php"]) .check-row {
+  justify-content: center;
+  color: #333333;
+  font-size: 1.05rem;
+}
+
+body:has(form[action="login.php"]) .check-row input {
+  width: auto;
+  min-height: auto;
+}
+
+body:has(form[action="login.php"]) .primary-button,
+body:has(form[action="register.php"]) .primary-button {
+  justify-self: center;
+  min-width: 220px;
+  min-height: 66px;
+  padding: 0 38px;
+  color: #ffffff;
+  background: #f0523d;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+body:has(form[action="login.php"]) .primary-button,
+body:has(form[action="register.php"]) .primary-button {
+  font-size: 0;
+}
+
+body:has(form[action="login.php"]) .primary-button::before,
+body:has(form[action="register.php"]) .primary-button::before {
+  font-size: 1rem;
+}
+
+body:has(form[action="login.php"]) .primary-button::before {
+  content: "SIGN IN";
+}
+
+body:has(form[action="register.php"]) .primary-button::before {
+  content: "SIGN UP";
+}
+
+body:has(form[action="login.php"]) .primary-button:hover,
+body:has(form[action="register.php"]) .primary-button:hover {
+  background: #e94632;
+}
+
+body:has(form[action="login.php"]) .form-panel > .muted:last-child {
+  margin-top: 24px;
+  color: #333333;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+body:has(form[action="login.php"]) .form-panel > .muted:last-child a,
+body:has(form[action="register.php"]) .form-panel a {
+  color: #f0523d;
+}
+
+body:has(form[action="login.php"]) .alert,
+body:has(form[action="register.php"]) .alert {
+  text-align: center;
+}
+
+@media (min-width: 681px) {
+  body:has(form[action="login.php"]) .auth-form-wrap::after,
+  body:has(form[action="register.php"]) .auth-form-wrap::after {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.45;
+    opacity: 0.75;
+  }
+
+  body:has(form[action="login.php"]) .auth-form-wrap::after::first-line,
+  body:has(form[action="register.php"]) .auth-form-wrap::after::first-line {
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 680px) {
+  body:has(form[action="login.php"]) .auth-form-wrap,
+  body:has(form[action="register.php"]) .auth-form-wrap {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    padding: 38px 22px;
+    background: linear-gradient(135deg, #f0523d 0%, #ed3f68 100%);
+  }
+
+  body:has(form[action="login.php"]) .auth-form-wrap::before,
+  body:has(form[action="register.php"]) .auth-form-wrap::before,
+  body:has(form[action="login.php"]) .auth-form-wrap::after,
+  body:has(form[action="register.php"]) .auth-form-wrap::after {
+    display: none;
+  }
+
+  body:has(form[action="login.php"]) .form-panel.narrow,
+  body:has(form[action="register.php"]) .form-panel.narrow {
+    grid-column: 1;
+    width: min(100%, 440px);
+    padding: 34px 22px;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+}
+
+/* FINAL LAST-WORD AUTH OVERRIDE */
+body.auth-page .auth-form-wrap::before,
+body.auth-page .auth-form-wrap::after,
+body.auth-page:has(form[action="login.php"]) .auth-form-wrap::before,
+body.auth-page:has(form[action="login.php"]) .auth-form-wrap::after,
+body.auth-page:has(form[action="register.php"]) .auth-form-wrap::before,
+body.auth-page:has(form[action="register.php"]) .auth-form-wrap::after,
+body.auth-page .form-panel h1::before,
+body.auth-page .form-panel h1::after,
+body.auth-page:has(form[action="login.php"]) .form-panel h1::before,
+body.auth-page:has(form[action="login.php"]) .form-panel h1::after,
+body.auth-page:has(form[action="register.php"]) .form-panel h1::before,
+body.auth-page:has(form[action="register.php"]) .form-panel h1::after,
+body.auth-page form::before,
+body.auth-page:has(form[action="register.php"]) .form-panel form::before,
+body.auth-page .primary-button::before,
+body.auth-page:has(form[action="login.php"]) .primary-button::before,
+body.auth-page:has(form[action="register.php"]) .primary-button::before {
+  display: none !important;
+  content: none !important;
+}
+
+body.auth-page .site-header,
+body.auth-page .remember-row,
+body.auth-page .social-icons,
+body.auth-page .form-panel > .muted {
+  display: none !important;
+}
+
+body.auth-page .auth-form-wrap,
+body.auth-page .auth-screen {
+  display: grid !important;
+  grid-template-columns: 50vw 50vw !important;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #ffffff !important;
+}
+
+body.register-page .auth-panel {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.register-page .auth-card {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-card {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+body.login-page .auth-panel {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+body.auth-page .auth-panel {
+  display: grid !important;
+  place-items: center !important;
+  min-height: 100vh !important;
+  padding: 40px 7vw !important;
+  background: linear-gradient(135deg, #0b5b4d 0%, #0f6f5d 100%) !important;
+  text-align: center !important;
+}
+
+body.auth-page .auth-panel h2 {
+  margin: 0 0 24px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.9rem, 5vw, 3.7rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+}
+
+body.auth-page .auth-panel p {
+  max-width: 430px !important;
+  margin: 0 auto 42px !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-size: 1.18rem !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+body.auth-page .ghost-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 220px !important;
+  min-height: 62px !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  border: 2px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+}
+
+body.auth-page .auth-card,
+body.auth-page:has(form[action="login.php"]) .form-panel.narrow,
+body.auth-page:has(form[action="register.php"]) .form-panel.narrow {
+  align-self: center !important;
+  justify-self: center !important;
+  width: min(70%, 455px) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+body.auth-page .auth-card h1,
+body.auth-page:has(form[action="login.php"]) .form-panel h1,
+body.auth-page:has(form[action="register.php"]) .form-panel h1 {
+  margin: 0 0 34px !important;
+  color: #050505 !important;
+  font-size: clamp(2.65rem, 5vw, 3.35rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+  white-space: nowrap !important;
+}
+
+body.register-page .auth-card,
+body.register-page:has(form[action="register.php"]) .form-panel.narrow {
+  width: min(76%, 560px) !important;
+}
+
+body.register-page .auth-card h1,
+body.register-page:has(form[action="register.php"]) .form-panel h1 {
+  font-size: clamp(2.7rem, 4.6vw, 3.45rem) !important;
+}
+
+body.auth-page .auth-subtext,
+body.auth-page:has(form[action="register.php"]) .form-panel form::before {
+  display: none !important;
+}
+
+body.auth-page form {
+  display: grid !important;
+  gap: 18px !important;
+}
+
+body.auth-page .field-group label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+body.auth-page input,
+body.auth-page select {
+  width: 100% !important;
+  min-height: 66px !important;
+  padding: 0 24px !important;
+  background: #eeeeee !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page input:valid,
+body.auth-page select {
+  padding-top: 0 !important;
+}
+
+body.register-page .role-group {
+  display: none !important;
+}
+
+body.login-page .forgot-link {
+  margin: 4px 0 6px !important;
+  color: #333333 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+body.auth-page .auth-link-button {
+  text-decoration: none !important;
+}
+
+body.login-page .remember-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin: -4px 0 0 !important;
+  color: #333333 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+body.login-page .remember-row input {
+  width: 16px !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  padding: 0 !important;
+  accent-color: #0b5b4d !important;
+}
+
+body.auth-page .primary-button,
+body.auth-page:has(form[action="login.php"]) .primary-button,
+body.auth-page:has(form[action="register.php"]) .primary-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: center !important;
+  min-width: 225px !important;
+  min-height: 64px !important;
+  padding: 0 42px !important;
+  color: #ffffff !important;
+  background: #0b5b4d !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18) !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
